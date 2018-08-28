@@ -1,3 +1,2 @@
-Git is a version control system.
-Git is free software.
-git is free txt.
+this is my git;
+my git_repository
