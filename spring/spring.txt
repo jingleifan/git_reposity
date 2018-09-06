@@ -1,0 +1,8 @@
+Spring  准备   common-logging.jar   核心包 4个，
+	    准备   springsource-tool-suite 安装到eclipse中
+spring  核心 beans  core  context  spel
+
+1. spring 整合hibernate整合什么?
+	1).有ioc容器来管理hibernate的sessionFactory
+	2).让hibernate使用Spring的声明式事务
+

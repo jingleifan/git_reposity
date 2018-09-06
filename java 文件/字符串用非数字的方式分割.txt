@@ -1,0 +1,2 @@
+表示以非数字的方式分割开来
+	String[] temp = str.split(\\D); 

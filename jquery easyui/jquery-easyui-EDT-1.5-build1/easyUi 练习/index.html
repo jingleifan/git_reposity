@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>  Jquery easy ui </title>
+	<meta   charset="UTF-8"/>
+		<script type="text/javascript" src="easyui/jquery.min.js"></script>
+		<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"  ></script>
+		<link  	rel="stylesheet"  type="text/css" href="easyui/themes/icon.css"  />
+		<link 	rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css"/>
+		
+		<script type="text/javascript" src="js/indexjs.js"  ></script>
+
+
+</head>
+<body>
+
+	<!--当不支持js时候会显示-->
+		<noscript>
+		 <h1>JavaScript is required!0</h1>
+		 <p>You cannot use this page without Javascript</p>
+		</noscript>
+	<!--当不支持js时候引入百度页面-->
+		<noscript>
+		 <!--  <meta http-equiv="refresh" content="5;url=http://www.dreamdu.com/"/> -->
+		</noscript>
+
+<p itemscope>下周我要去<span itemprop="name">韩红刚</span>家拔萝卜</p>
+
+	<div id="dd" class="" style="width:100px;height:100px;border:1px solid yellow">
+	我擦，
+	</div>
+	
+	
+	<div id="box" style="width:50px;height:50px;background-color:red">
+		<span id="pox">我擦2，</span>
+	</div>
+	
+	<div id="rr" class="easyui-resizable"  data-options="maxWidth:200,maxHeight:200" style="border:1px solid black;width:40px;height:40px;">
+	拖拽
+	</div>
+	<div id="rr1" class="easyui-resizable"  data-options="maxWidth:200,maxHeight:200" style="border:1px solid black;width:40px;height:40px;">
+	拖拽js
+	</div>
+	<a href="" id="toolstip"> 提示 </a>
+	<script>
+	//document加载完成后执行ready（）
+	$(document).ready(function(){ 
+			var person=new Object();
+			person.name="jingfan";
+			person.age=20;
+			alert(person.name);
+			var  home="sssssss";
+			alert(person["home"]);
+		//sa({name:"string",password:1});
+	
+/*$(document).ready(function(){ 
+	alert(document.write(document.compatMode == "CSS1Compat" ? "当前处于标准模式" : "当前处于混杂模式"));
+});*/ 
+ 
+}); 
+//----------------
+	$(function(){
+		//alert(123);
+	});
+	//等价于
+	jQuery(function(){
+		//alert(1234);
+	});
+	
+	//-------------------立即执行匿名函数，只不过参数是jQuery对象
+	(function() {
+		//alert("你好1");
+	})(jQuery);
+
+
+	(function() {
+	//alert("你好2");
+	})($);
+
+	(function() {
+	   // alert("你哈3");
+	})();
+	//以上三种又可以用 window.onload = function () {};代替。
+//----------------
+   function  sa(time){
+		
+		if(typeof time.name=="string"){
+			alert(time.name);
+		}
+		if(typeof time.password=="number"){
+		alert(time.password);
+		}
+   }
+	
+	</script>
+</body>
+</html>

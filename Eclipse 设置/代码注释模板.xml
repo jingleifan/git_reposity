@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="false" context="methodcomment_context" deleted="false" description="Comment for non-overriding methods" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.methodcomment" name="methodcomment">/**
+ * @创建目的:
+ * @方法名：${enclosing_method}
+ * @创建人：${user}
+ * @创建时间：${date}${time}
+ * @修改人：
+ * @修改内容：
+ * @修改备注：
+ * ${tags} ${return_type}
+ * 
+ */</template></templates>

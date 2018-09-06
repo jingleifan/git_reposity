@@ -1,0 +1,3 @@
+  calendar
+	add(int file,int amout)方法
+	file数字 1-年；2-月；3-星期；5-日；11-小时；12-分钟；13-秒；14-毫秒；

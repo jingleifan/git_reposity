@@ -1,0 +1,4 @@
+--将数值除以某个数 保留两位小数   
+SELECT ROUND(COALESCE(CAST(32.3 AS DOUBLE), 0)/10, 2) FROM duan;
+--将 科学计数法 转化为小数
+select CAST(pap1_value AS DECIMAL(18,6))

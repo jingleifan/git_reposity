@@ -1,0 +1,113 @@
+
+
+
+-----重庆江津区短信
+
+将数据拷贝到另一个地方，自己在192.160.20.5，把.5的数据放入192.160.20.2的/home/d5000/jiangjin目录下
+	Sftp 192.160.20.2
+	lcd  /home/d5000/jiangjin/zfjk/lib
+	cd  /home/d5000/jiangjin
+	put  你要的文件名称
+获取数据，自己在192.160.20.5上 ，要从192.160.20.2上的东西放入192.160.20.5上
+	sftp 192.160.20.2
+	cd  /home/d5000/jiangjin
+	lcd  /home/d5000/jiangjin/zfjk/lib
+	get   文件名   
+
+打包，将lib 目录打包成 lib.tar.gz
+	tar –zcvf lib.tar.gz   lib
+
+备份 ,将JJinterface.jar备份为JJinterface.jar_bak
+	mv    JJinterface.jar    JJinterface.jar_bak
+
+查看linux处理器是多少位
+	uname -a
+查看linux处理器信息
+	cat /proc/cpuinfo 
+给.sh文件加权限
+	chmod +x 文件名.sh
+继续运行
+	nohup;
+删除变量
+	unset  变量名   #删除后不能在使用，不能删除只读变量
+特殊变量
+	$0 当前脚本文件名
+	$n 表示传递脚本的参数
+	$# 传递给脚本或函数的参数个数
+	$* 传递给脚本或函数的所有参数
+	$@传递给脚本或函数的所有参数。被双引号(" ")包含时，与 $* 稍有不同，下面将会讲到。
+	$? 上个命令的退出状态，或函数的返回值
+	$$ 当前Shell进程ID。对于 Shell 脚本，就是这些脚本所在的进程ID。
+
+转移字符
+	\\	反斜杠
+	\a	警报，响铃
+	\b	退格（删除键）
+	\f	换页(FF)，将当前位置移到下页开头
+	\n	换行
+	\r	回车
+	\t	水平制表符（tab键）
+	\v	垂直制表符
+	 echo 命令的 -E 选项禁止转义，默认也是不转义的；使用 -n 选项可以禁止插入换行符。
+	echo  -e  "Value of a is $a \n"  将会把\n转义
+替换
+	${var}		变量本来的值
+	${var:-word}	如果变量 var 为空或已被删除(unset)，那么返回word，但不改变var 的值。
+	${var:=word}	如果变量 var 为空或已被删除(unset)，那么返回 word，并将 var 的值设置为 word。
+	${var:?message}	如果变量 var 为空或已被删除(unset)，那么将消息 message 送到标准错误输出，可检测变量 var 是否可以被正常赋值。若此替换出现在Shell脚本中，那么脚本将停止运行。
+	${var:+word}	如果变量 var 被定义，那么返回 word，但不改变 var 的值。
+
+
+
+重启linux
+	shutdown -r  now
+
+
+设置java的环境变量 在/etc/profile 文件最后加入
+	export JAVA_HOME=/usr/java16
+	export PATH=$JAVA_HOME/bin:$PATH
+	export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
+	然后保存，在终端运行  source  /ect/profile    然后数据java  -version
+
+查看进程的命令
+	 ps -ef | grep SmsRxtx（进程名）
+杀死进程
+	kill -s 9  端口名
+查看jdk安装路径
+	which java 或者 find / -name java
+
+启动定时服务
+	/sbin/service crond start
+重启定时服务
+	/sbin/service crond restart
+
+查看定时服务 
+	crontab -l
+
+查看tomcat是否启动
+tail -f catalina.out
+
+看进程aaaa是否启动
+ ps -ef| grep aaaa  
+
+
+给  web付权限
+
+chmod  -R 755 web
+
+
+修改linux登录密码
+sudo -s -H
+passwd    两次
+
+
+重启网络
+service network restart
+
+更改密码
+sudo passwd root
+
+下载命令
+wget
+

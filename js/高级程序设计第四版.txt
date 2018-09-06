@@ -1,0 +1,325 @@
+  1.defer属性:  defer="defer"  立即下载，延迟执行，表示页面加载完成后js开始加载
+  2.async属性：表示外部js与页面异步执行  
+  3.hack:不同游览器使用不同的hack达到各自需要的效果
+  4.	<noscript>
+    <h1>JavaScript is required!0</h1>
+    <p>请检查游览器是否禁用javaScript</p>
+	</noscript>
+	标签会在不支持js或者禁用js的游览器中显示信息
+  5.严格模式：js开头添加   "use strict";
+  6.浮点数值 最高精度17位，小数点6位以后就以科学计数法的方式表示
+  7.永远不要测试特定的浮点数值，不如0.1+0.2等于0.30000000000000004
+  8.isFinite:document.write(isFinite(123)+ "<br />")  判断是否为有效数字，返回boolean
+  9.NaN  和任何东西都不相同   函数 isNaN()  ps:isNaN(10)  返回false, 能被转化为数值的返回false
+  10.parseInt  转化如果为空是NaN，如果为123fs，会返回123 ，遇到非数字就忽略，Number 转化为空是0;再进行转化时，ECMAscript3和5对于8进制显示不一样，需要多加参数parseInt("057" ,16 );parseFloat()没有参数
+  11.toString()   不能转化null和undefined   ；var s="sf" s.toString;
+  12.String( )   null和undefined  返回原值  ；var s="sf" String(s);
+  13.逻辑与 &&  短路操作
+  14.乘法 如果操作数不是数值，后台调用number()函数转化为数值，进行计算
+  15.标准模式
+      触发标准模式:
+      <!-- HTML 4.01 严格型 -->
+      <!DOCTYPE HTML PUBLIC"-//W3C//DTD HTML4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+      <!-- XHTML 1.0 严格型 -->
+      <!DOCTYPE htmlPUBLIC "-//W3C//DTD XHTML 1.0Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+      触发准标准模式:
+      <!-- HTML 4.01 过渡型 -->
+      <!DOCTYPE HTMLPUBLIC "-//W3C//DTD HTML 4.01Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+      <!-- HTML 4.01 框架集型 -->
+      <!DOCTYPE HTMLPUBLIC "-//W3C//DTD HTML 4.01Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+      <!-- XHTML 1.0 过渡型 -->
+      <!DOCTYPE htmlPUBLIC "-//W3C//DTD XHTML 1.0Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+      <!-- XHTML 1.0 框架集型 -->
+      <!DOCTYPE htmlPUBLIC "-//W3C//DTD XHTML 1.0Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+  16.<!CDATA[[]  JS]>  在兼容xhtml中，在不兼容xhtml中：//<![[] js代码]>  
+  17.% 求模  当操作数不是数字的时候，则后台调用Number（）将其转化为数字，在执行计算
+  18.减法操作： 
+            var    result=5-true       //4   true被转化为1
+            var    result=NaN-1       //NaN    
+            var    result=5-""        //5   ""空格被转化为0
+            var    result=5-"2"       //3   "2"被转化为2
+            var    result=5-null      //5   null被转化为0 
+  19.小于   
+          1 "BRACK"<"ared"    //true 
+          2 "23"<"3"          //ture
+          3 "23"<3            //false
+          4 NaN<2        NaN>=2   //false
+  20.toLowerCase() 格式化小写
+  21.==  !=  会先转化后比较  true 转化为1   ；null 和undefined  是相等的；有一个是NaN 相等就是false，两个也是false
+  22.全等===    比较时不会进行转换   如   "5"===5  //false
+  23.左移  <<=  ; 有符号右移 >>=  ; 无符号右移    >>>=   
+  24.with 语句，将代码的作用于设定到特定的对象中
+      比如：
+          var   gs=location.search.substring(1);   //返回url？之后的内容并截取，如www.baidu.com?stre=2   返回stre=2
+          var hostName=location.hostname;          //返回主机名，如www.baidu.com
+          var url=location.href;                   //完整访问链接；
+      简写为
+        with(location){
+          var   gs=search.substring(1);
+          var hostName=hostname;
+          var url=href;
+        }
+  25.arguments[0] ,js的参数除了用参数名接收外，还可以用arguments[0]来接收第一个参数
+      例如 function  s(st,ma){
+            return  arguments[0]+ma;              // arguments[0] 表示st第一个参数
+          }
+      因此在js中，不同与其他语言，方法的参数不是必须的
+      如：
+        function    ss（）{
+          alert(arguments[0]);
+        }
+        调用s("123")；也可以输出来
+        ----
+        arguments.callee;用来代替方法名递归，防止耦合
+        function    a（s）{
+          if(s<=1){return 1;
+          }else{
+            return  s *  arguments.callee(s-1);
+          }
+
+        }
+
+  26.typeof  判断基本类型；instanceof   判断对象是什么类型   例如：student instanceof Student/Ojbect/Array/RegExp  对象时student类，是object，Array   
+      ，正则表达式；
+  27.基本类型固定大小存在栈中；从一个变量向另一个变量复制基本类型的值，会创建这个值的副本；
+     引用类型是对象，保存在堆中；包含引用类型的变量实际上包含的不是对象本身，而是一个指向该对象的指针；
+     从一个变量向另一个变量复制引用类型的值，复制的实际是指针，因此这两个变量都指向同一个对象；
+  28.创建对象的方式：
+          1.   var   person =new Object();
+                person.name="aaa ";
+                person.age=20;
+
+          2.   var   person ={            //对象字面量表示法
+                  "name":"aaa",          // name 可以加""
+                   age:20                      
+                }
+            3.  对象用typeof 来判断 是否存在变量不存在不输出
+              function   sa（person）{
+                if(typeof person.name=="string"){
+                  alert(person.name);
+                }
+                if(typeof person.password=="number"){
+                  alert(person.password);
+                }
+              //通过调用sa，有几个参数传入几个，会判断是否存在此属性
+              $(document).read(function(){
+                sa（{name:"stirng",password:1}）；
+                sa（{name:"stirng"}）；
+              });
+               //---------------------------------------------
+              $(document).read(function(){ })；
+              可以简写成
+              $(function(){ });
+  30.数组的创建  
+       var  colors=new  Array();      或者   var  colors=[];
+       var  colors=new  Array(20);   
+       var  colors=new  Array("red","greed",13);  或者  var  colors=["red","greed" ]；
+
+       //判断是否是一个数组
+        Array.isArray(colors);    //true
+       //数组分隔
+       colors.join();     //join（"|"）以|分隔数组数据，不写默认用，分隔
+
+  31.toString(),toLocaleString(),tovalueOf()
+
+      //时间 toLocaleString（）；
+      alert(new Date().toLocaleString());   //2017/7/25 上午10:36:28
+
+      对于数组 调用toStirng（），toLocaleString（）方法等于调用各自对用的toString（），toLocaleString()方法；
+      alert（）输出数组的时候，默认调用toStirng();方法
+  32. every()   //对数组中的每一项运行给定函数，如果函数对每一项都返回true，则返回true;
+      some()    //对数组中的每一项运行给定函数，如果函数有任意一项返回ture，则返回true
+        var number=[1,2,3,4,5];
+        var everyResult=number.every(function(item,index,array){
+            return item>2             
+        });
+        //结果返回false；
+        --------------
+        var number=[1,2,3,4,5];
+        var everyResult=number.some(function(item,index,array){
+            return item>2             
+        });
+        //结果返回true；
+  33.educe(prev,next,index,array)   educeRight();     //函数相加
+       //参数1 前一个值，2后一个值，3项的索引，4 数组对象， 
+       //函数返回值会作为第一个参数自动传给下一项，
+       //一个从左往右，一个从右往左
+        var   color=[1,1,1,1,1,10];
+        var sum=color.reduce(function(prev,next,index,array){
+            return  prev+next;
+         });
+         alert(sum);  //15
+  34. date    时间函数
+      1.  var date =new Date(Date.parse("2017-7-25")); 和var date =new Date("2017-7-25")等价；直接new Date相当于后台调用了Date.parse()方法
+      2.  var date =new Date(Date.UTC(2000,5));   //参数为 年 月（0-11）日(1-31) 小时（0-23）分钟 秒 毫秒 ，
+          参数中只有年月是必须的 ，其余的  日默认1  ，其他默认0
+      3.  var  date =new  Date(2000,5); date  也可以按照utc的方式写 ，
+        区域：date是基于系统设置本地时间创建的 ，utc是基于GMT创建的
+      
+     
+      5.Date().now()                           //获得当前时间的毫秒数
+         1. 求出间隔时间    支持IE9+,Firefox 3+, Safari 3+, Opera 10.5和chrome
+            var  start=Date.now();
+            for(var  i=0;i<10000000;i++){
+                  s+=i+(i+1)*5+2*23;
+              }
+            var  end=Date.now();
+            console.log(end-start);
+
+            
+          2.//---------- 对于不支持上述方式可以使用+号转化为字符串
+              var  start=+new  Date();
+              var   s=0;
+              for(var  i=0;i<10000000;i++){
+                  s+=i+(i+1)*5+2*23;
+              }
+              var  end=+new Date();
+              console.log(end-start);
+
+
+
+
+      6.      var  start=new  Date()；
+          
+        start.toString();                                   //Mon Aug 14 2017 19:06:03 GMT+0800 (中国标准时间)
+              valueOf();                                        //1502708763903
+              toLocaleString()                                 // 2000/5/1 上午12:00:00
+              toDateString()                                   //Fri May 05 2000
+              toTimeString()                                   // 05:05:05 GMT+0800 (中国标准时间)
+              toLocaleDateString()                             //2000/5/5
+              toLocaleTimeString()                             //上午5:05:05
+              toUTCString()                                    //Thu, 04 May 2000 21:05:05 GMT    与toGMTString()方法一样不过，gmt是向下兼容，推荐utc
+      7.其余时间方法
+          getTime() / getvalueOf()  　　　　　　　　　　　　　　　　　　//返回时间毫秒数
+          setTime()
+          getYear()                                       //得到的是与1900相差的年份  
+          getFullYear()                                   //2017 --年      
+          getUTCFullYear()                                //2017 --年
+          getMonth()                                      //0    --月   0表示  1月
+          getUTCMonth()                                   //0    --月   0表示  1月
+          setMonth()                                      //超过11 增加年份
+          setUTCMonth()                                   //超过11 增加年份
+          getDate()                                       //天
+          getUTCDate()                                    //天
+          getHours()                                      //小时 0-23
+          getUTCHours()                                   //小时 0-23
+          getMinutes()                                    //分钟
+          getUTCMinutes()                                 //分钟
+          getSeconds()                                    //秒
+          getUTCSeconds()                                 //秒
+          getMilliSeconds()                               //毫秒
+          getUTCMilliSeconds()                            //毫秒
+          getTimezoneOffset()                             //返回与utc时间相差的分钟数
+
+  35.RegExp  正则表达式
+
+        var  expression = /pattern/flags   
+        其中 pattern  是正则表达式    ，flags 标志
+
+      1.flags标志
+          g. 全局模式，应用于所有字符串，而非在发现第一个匹配项时立即停止；
+          i. 不区分大小写
+          m. 多行模式，文本末尾还会查找下一行 是否与模式匹配的项
+
+          1。-----自面量形式 
+          //匹配字符串中所有的at实例
+          var  pattern1=/at/g;
+          //匹配第一个bat或cat，不区分大小写
+          var  pattern1=/[bc]at/i;
+          //匹配所有以at结尾的3个字符组合，不区分大小写
+          var  pattern3=/.at/gi;
+          //匹配第一个"[bc]at",不区分大小写
+          var  pattern4=/\[bc\]at/i;
+          //匹配所有".at",不区分大小写
+          var  pattern5=/\.at/gi;
+      
+          2。使用构造函数创建
+            var  pattern1=new RegExp("cat","i");
+            //需要注意，因为是字符串，必须双重转义
+            var  pattern2=new RegExp("\\.at","i");
+            //需要转义的有
+            (){}[].?$|\+*^
+      2，RegExp实例属性
+          global:布尔值，表示是否设置了g标志。
+          ignoreCase:布尔值，表示是否设置了i标志。
+          multiline：布尔值，表示是否设置了m标志。
+          lastIndex:整数，表示开始搜索下一个匹配项的字符位置，从0开始
+          source：正则表达式的字符串表示，字面量形式
+         构造函数属性
+          input             $_    最后一次要匹配的字符串。
+          lastMatch         $&    最近一次的匹配项
+          lastParen         $+    最近一个匹配的捕获组
+          leftContext       $`    input字符串中lastMatch之前的文本
+          multiline         $*    布尔值，表示所有表达式是否使用布尔值
+          rightContext      $'    input字符串中lastMatch之后的文本
+
+                var text="this has been a short  summer";
+                var  parrent=/(.)hort/g;
+                parrent.test(text);
+
+                  console.log(RegExp.$_);         
+                  console.log(RegExp["$`"]);          
+                  console.log( RegExp["$'"]);    
+                  console.log(RegExp["$&"]);         
+                  console.log(RegExp["$+"]);            
+                  console.log( RegExp["$*"]);
+      3,方法  
+        exec（）；返回第一个匹配的数组，没有为null
+          设置全局标志g，每此调用exec都会继续从字符串查找值，
+          对于不设置全局标志情况，每次调用exec都会从头开始查找
+          var  st="bat, cat, mat";
+          var   parrent=/.at/g
+          var  mat=parrent.exec(st);
+          parrent.exec(st);
+          console.log(mat.index);         //0
+          console.log(mat[0]);            //bat
+          console.log( mat.lastIndex);    //0
+        text();返回true，或返回false
+
+   36.函数
+      函数名.caller   当前调用函数的函数的引用 等价于 arguments.callee.caller
+     1. 函数属性  length  protorype
+      length  表示函数接收的参数个数
+     2.方法
+        apply()  两个参数 ，第一个作用域，第二个参数（可以使Array,或者grguments），
+        call()   两个参数，第一个作用域，第二个必须是具体的参数
+   37.基本包装类
+      Boolena   Number   String
+      var  s=new  Object("123");  //使用typeof 得到Object ，使用instanceof   会返回String
+   38.Number
+      var  num=10；
+        num.toString();  //10
+        num.toString(2); //1010 二进制
+        num.toString(8); //12   八进制
+
+        num.toFixed(2);  // 10.00   制定返回小数位数
+        num.toExponential(2);   //1.00e+1    转化为科学技术法，2表示小数位数
+        num.toPrecision(3);   //10.0   会自动按最好的方式从前面两种中选一种显示 ，3表示一共有三位，可选有1-21
+   39.String
+          var  stringvalue="hello word";
+
+          stringvalue.charAt(1)或stringvalue[1]   //返回e
+          stirngvalue.charCodeAt(1);  // 返回101  ，编码
+                      //e  
+
+
+
+
+  方法通用.
+      toUpperCase()   toLowerCase()  //转化大小写
+
+      push（）   pop()               //堆 插入移除
+      unshift()    shift()               //队列  插入移除   //unshift()支持ie8+以上
+      reverse() //将数组倒序排序  sort() //按String比较大小
+      concat（"字符串"）                        //将字符串加入到已存在的字符串后面
+      slice(start,end)                         // 将获得数组开始到结束的数组，不影响原来的数组
+      splice(起始位置，删除个数，替换内容);     //可以进行删除，替换，插入  返回数组
+      every（item，index，array）             //对数组中的每一项运行给定函数，如果函数对每一项返回true，则返回true;
+      some(item，index，array)                //对数组中的每一项运行给定函数，如果函数对任一项返回true,则返回true；
+      filter（item，index，array）；          //对数组中的每一项运行给定函数，返回改函数会返回true的项组成的数组；
+      forEach（item，index，array）           //对数组中的每一项运行给定函数，没有返回值
+      map()                                  //对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组
+      reduce() reduceRight()                 //对数组 每一项进行进行操作
+
+

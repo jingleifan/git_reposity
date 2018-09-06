@@ -1,0 +1,4 @@
+   1.border:1px dotted black; 黑色虚线
+   2.background:transparent    //背景色透明
+   3.letter-spacing	    字母间距
+	4.font-style        倾斜字体

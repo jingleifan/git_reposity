@@ -1,0 +1,20 @@
+
+function之外
+$.parser.atuo=false  
+
+ $.parser.onComplete=function(){
+	alert('ui解析完成');
+	$.fn.draggable.defaults.cursor='text';
+
+
+}
+
+
+
+
+
+&.parser.parse();
+
+
+
+192.1.105.15

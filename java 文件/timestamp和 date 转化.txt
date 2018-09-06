@@ -1,0 +1,11 @@
+Date 转化为 TimeStamp
+		Date   da=new  Date();
+		Timestamp ts = new Timestamp(date.getTime());
+TimeStamp 转化为Date
+
+
+
+String  转化为   timeStamp
+
+TimeStamp.valueOf("2015-02-03 00:15:25");
+	
